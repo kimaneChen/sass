@@ -5,24 +5,54 @@
   @return map-get($map: $font-weights, $key: $weight-name )
 };
 
+@mixin flexCenter($direction){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin theme($light-theme: true) {
+  @if $light-theme {
+    background: lighten($primary-color, 100%);
+    color: darken($text-color, 100%);
+  }
+}
+
 body {
   background: $primary-color;
   color: $text-color;
   
 }
 
+@mixin mobile {
+  @media (max-width: $mobile){
+    @content;
+  }
+}
+
 .main{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter(row);
   width: 80%;
   margin: 0 auto;
   
-  #{&}__paragraph {
+  #{&}__paragraph1 {
     font-weight: weight(bold);
 
     &:hover{
       color: pink;
     }
   }
+
+  #{&}__paragraph2{
+    @extend .main__paragraph1;
+  }
+
+  @include mobile{
+    flex-direction: column;
+  }
+}
+
+.light{
+  @include theme(true);
 }

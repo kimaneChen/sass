@@ -1,10 +1,15 @@
-:root {
-  --primary-color:#272727;
-  --accent-color: #ff652f;
-  --text-color: #fff;
+body {
+  background: #272727;
+  color: #fff;
 }
 
-body {
-  background: var(--primary-color);
-
+.main {
+  width: 80%;
+  margin: 0 auto;
+}
+.main .main__paragraph {
+  font-weight: 900;
+}
+.main .main__paragraph:hover {
+  color: pink;
 }/*# sourceMappingURL=main.css.map */
